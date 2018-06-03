@@ -72,7 +72,7 @@ namespace Chess
                 }
                 if (PlayerPos[1] >= 99)
                 {
-                    Console.WriteLine("玩家 {0} 赢得了对战，战胜了玩家 {1}", PlayerName[1], PlayerName[2]);
+                    Console.WriteLine("玩家 {0} 赢得了对战，战胜了玩家 {1}", PlayerName[1], PlayerName[0]);
                 }
             }
 
@@ -252,7 +252,7 @@ namespace Chess
                 }
                 else if (i >= 35 && i < 65)
                 {
-                    checkImages(i);
+                    checkImages(35 + 64 - i);
                 }
                 else if (i >= 65 && i < 70)
                 {

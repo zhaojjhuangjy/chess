@@ -87,6 +87,7 @@ namespace Chess
             int rNum = r.Next(1, 7);
             Console.WriteLine("玩家 {0} 掷出了 {1}", PlayerName[playNum], rNum);
             PlayerPos[playNum] += rNum;
+            ChangePos();
             Console.ReadKey(true);
             Console.WriteLine("玩家 {0} 按任意键开始行动", PlayerName[playNum]);
             Console.ReadKey(true);
@@ -97,6 +98,7 @@ namespace Chess
             {
                 Console.WriteLine("玩家 {0} 踩到了玩家 {1}，玩家 {2} 退6格", PlayerName[playNum], PlayerName[1 - playNum], PlayerName[1 - playNum]);
                 PlayerPos[1 - playNum] -= 6;
+                ChangePos();
                 Console.ReadKey(true);
             }
             else
@@ -120,6 +122,7 @@ namespace Chess
                                 PlayerPos[playNum] = PlayerPos[1 - playNum];
                                 PlayerPos[1 - playNum] = tempint;
                                 Console.WriteLine("交换完成！按任意键继续！");
+                                ChangePos();
                                 Console.ReadKey(true);
                                 break;
                             }
@@ -129,6 +132,7 @@ namespace Chess
                                 Console.ReadKey(true);
                                 PlayerPos[1 - playNum] -= 6;
                                 Console.WriteLine("玩家 {0} 退了6格", PlayerName[1 - playNum]);
+                                ChangePos();
                                 Console.ReadKey(true);
                                 break;
                             }
@@ -143,6 +147,7 @@ namespace Chess
                     case 2:
                         Console.WriteLine("玩家 {0} 踩到地雷，退6格", PlayerName[playNum]);
                         PlayerPos[playNum] -= 6;
+                        ChangePos();
                         Console.WriteLine("玩家 {0} 退了6格", PlayerName[playNum]);
                         Console.ReadKey(true);
                         break;
@@ -154,6 +159,7 @@ namespace Chess
                     case 4:
                         Console.WriteLine("玩家 {0} 踩到时空隧道，进10格", PlayerName[playNum]);
                         PlayerPos[playNum] += 10;
+                        ChangePos();
                         Console.WriteLine("玩家 {0} 进了10格", PlayerName[playNum]);
                         Console.ReadKey(true);
                         break;
